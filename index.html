@@ -11,11 +11,12 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
   <div class="cursor-glow"></div>
 
   <header class="navbar" id="navbar">
     <a class="brand" href="#home" aria-label="Anumata Visual home">
-      <span class="brand-mark">A</span>
+      <span class="brand-mark">AV</span>
       <span>ANUMATA<br><small>VISUAL</small></span>
     </a>
 
@@ -30,12 +31,12 @@
 
     <a class="nav-cta" href="#contact">Book Us <span>↗</span></a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span>
     </button>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero section" id="home">
       <div class="hero-copy reveal">
         <p class="eyebrow"><span></span> Photography & Videography Studio</p>
@@ -84,10 +85,10 @@
         </div>
       </div>
       <div class="stats reveal">
-        <div><strong data-count="100">0</strong><span>+ Projects</span></div>
-        <div><strong data-count="50">0</strong><span>+ Clients</span></div>
-        <div><strong data-count="3">0</strong><span>Core Services</span></div>
-        <div><strong data-count="1">0</strong><span>Creative Vision</span></div>
+        <div><strong data-count="100">100</strong><span>+ Projects</span></div>
+        <div><strong data-count="50">50</strong><span>+ Clients</span></div>
+        <div><strong data-count="4">4</strong><span>Core Services</span></div>
+        <div><strong data-count="1">1</strong><span>Creative Vision</span></div>
       </div>
     </section>
 
@@ -138,37 +139,37 @@
           <p class="eyebrow">03 — SELECTED WORKS</p>
           <h2>OUR<br><em>PORTFOLIO.</em></h2>
         </div>
-        <div class="filters" role="tablist">
-          <button class="filter active" data-filter="all">All</button>
-          <button class="filter" data-filter="concert">Concert</button>
-          <button class="filter" data-filter="wedding">Wedding</button>
-          <button class="filter" data-filter="graduation">Graduation</button>
-          <button class="filter" data-filter="event">Event</button>
+        <div class="filters" role="group" aria-label="Filter portofolio">
+          <button class="filter active" aria-pressed="true" data-filter="all">All</button>
+          <button class="filter" aria-pressed="false" data-filter="concert">Concert</button>
+          <button class="filter" aria-pressed="false" data-filter="wedding">Wedding</button>
+          <button class="filter" aria-pressed="false" data-filter="graduation">Graduation</button>
+          <button class="filter" aria-pressed="false" data-filter="event">Event</button>
         </div>
       </div>
 
       <div class="portfolio-grid" id="portfolioGrid">
-        <article class="portfolio-item tall reveal" data-category="concert" data-title="Live Energy">
+        <article class="portfolio-item tall reveal" data-category="concert" data-title="Live Energy" role="button" tabindex="0" aria-haspopup="dialog">
           <img src="assets/konser2.jpeg" alt="Concert crowd">
           <div class="portfolio-meta"><span>Concert</span><strong>Live Energy</strong></div>
         </article>
-        <article class="portfolio-item reveal" data-category="wedding" data-title="The Vow">
+        <article class="portfolio-item reveal" data-category="wedding" data-title="The Vow" role="button" tabindex="0" aria-haspopup="dialog">
           <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85" alt="Wedding couple">
           <div class="portfolio-meta"><span>Wedding</span><strong>The Vow</strong></div>
         </article>
-        <article class="portfolio-item reveal" data-category="graduation" data-title="New Chapter">
+        <article class="portfolio-item reveal" data-category="graduation" data-title="New Chapter" role="button" tabindex="0" aria-haspopup="dialog">
           <img src="assets/gradu2.jpeg" alt="Graduation">
           <div class="portfolio-meta"><span>Graduation</span><strong>New Chapter</strong></div>
         </article>
-        <article class="portfolio-item wide reveal" data-category="event" data-title="The Gathering">
+        <article class="portfolio-item wide reveal" data-category="event" data-title="The Gathering" role="button" tabindex="0" aria-haspopup="dialog">
           <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1600&q=85" alt="Event">
           <div class="portfolio-meta"><span>Event</span><strong>The Gathering</strong></div>
         </article>
-        <article class="portfolio-item reveal" data-category="concert" data-title="On Stage">
+        <article class="portfolio-item reveal" data-category="concert" data-title="On Stage" role="button" tabindex="0" aria-haspopup="dialog">
           <img src="assets/konser.jpeg" alt="Live performer">
           <div class="portfolio-meta"><span>Concert</span><strong>On Stage</strong></div>
         </article>
-        <article class="portfolio-item tall reveal" data-category="wedding" data-title="Forever Frame">
+        <article class="portfolio-item tall reveal" data-category="wedding" data-title="Forever Frame" role="button" tabindex="0" aria-haspopup="dialog">
           <img src="assets/weding.jpeg" alt="Wedding rings">
           <div class="portfolio-meta"><span>Wedding</span><strong>Forever Frame</strong></div>
         </article>
@@ -237,9 +238,9 @@
         <a class="huge-cta" href="mailto:hello@anumatavisual.com">hello@anumatavisual.com <span>↗</span></a>
       </div>
       <div class="contact-details reveal">
-        <div><span>WhatsApp</span><a href="https://wa.me/62895361528406" target="_blank">+62 895 3615 28406</a></div>
+        <div><span>WhatsApp</span><a href="https://wa.me/62895361528406" target="_blank" rel="noopener noreferrer">+62 895 3615 28406</a></div>
         <div><span>Email</span><a href="mailto:hello@anumatavisual.com">hello@anumatavisual.com</a></div>
-        <div><span>Instagram</span><a href="https://www.instagram.com/anumata.id?mdxt=MTJmaTVybWNrNmFraQ==" target="_blank">@anumata.id</a></div>
+        <div><span>Instagram</span><a href="https://www.instagram.com/anumata.id?mdxt=MTJmaTVybWNrNmFraQ==" target="_blank" rel="noopener noreferrer">@anumata.id</a></div>
         <div><span>Location</span><p>Sukabumi, Jawa Barat, Indonesia</p></div>
       </div>
     </section>
@@ -251,9 +252,9 @@
     <a href="#home">Back to top ↑</a>
   </footer>
 
-  <div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau portofolio" aria-describedby="lightboxCaption" aria-hidden="true">
     <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
-    <img id="lightboxImage" src="" alt="">
+    <img id="lightboxImage" alt="">
     <div class="lightbox-caption" id="lightboxCaption"></div>
   </div>
 
