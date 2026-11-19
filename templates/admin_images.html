@@ -1,0 +1,27 @@
+<section class="account-panel admin-images" aria-labelledby="admin-images-title">
+  <h2 id="admin-images-title">Gambar beranda</h2>
+  <p class="account-muted">Pilih JPG, PNG, atau WebP. Maksimal 5 MB dan 16 megapiksel per gambar.</p>
+  {% for category, message in get_flashed_messages(with_categories=true) %}
+  <p class="notice{% if category == 'error' %} notice-error{% endif %}" role="status">{{ message }}</p>
+  {% endfor %}
+  <div class="admin-image-grid">
+    {% for slot, label, src, customized in images %}
+    <article class="admin-image-card" id="image-{{ slot }}">
+      <h3>{{ label }}</h3>
+      <img src="{{ src }}" alt="Pratinjau {{ label }}" loading="lazy">
+      <form class="auth-form" action="{{ url_for('admin_image', slot=slot) }}" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <label for="upload-{{ slot }}">Pilih gambar baru</label>
+        <input id="upload-{{ slot }}" name="image" type="file" accept="image/jpeg,image/png,image/webp" required>
+        <button class="btn btn-light" type="submit" name="action" value="upload">Ganti gambar</button>
+      </form>
+      {% if customized %}
+      <form action="{{ url_for('admin_image', slot=slot) }}" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button class="account-link" type="submit" name="action" value="reset">Pulihkan gambar bawaan</button>
+      </form>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>

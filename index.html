@@ -27,9 +27,10 @@
       <a href="#portfolio">Portfolio</a>
       <a href="#achievement">Achievement</a>
       <a href="#contact">Contact</a>
+      <a class="nav-login-mobile" href="login.html">Login</a>
     </nav>
 
-    <a class="nav-cta" href="#contact">Book Us <span>↗</span></a>
+    <a class="nav-cta" href="login.html">Login</a>
 
     <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span>
@@ -53,7 +54,7 @@
 
       <div class="hero-visual reveal">
         <div class="hero-image">
-          <img src="assets/hero.jpeg" alt="Concert photography">
+          <img data-home-image="hero" src="assets/hero.jpeg" alt="Concert photography">
           <div class="image-overlay"></div>
           <div class="hero-tag">01 / 04<br><small>LIVE EVENT</small></div>
         </div>
@@ -150,27 +151,27 @@
 
       <div class="portfolio-grid" id="portfolioGrid">
         <article class="portfolio-item tall reveal" data-category="concert" data-title="Live Energy" role="button" tabindex="0" aria-haspopup="dialog">
-          <img src="assets/konser2.jpeg" alt="Concert crowd">
+          <img data-home-image="portfolio-concert" src="assets/konser2.jpeg" alt="Concert crowd">
           <div class="portfolio-meta"><span>Concert</span><strong>Live Energy</strong></div>
         </article>
         <article class="portfolio-item reveal" data-category="wedding" data-title="The Vow" role="button" tabindex="0" aria-haspopup="dialog">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85" alt="Wedding couple">
+          <img data-home-image="portfolio-wedding" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85" alt="Wedding couple">
           <div class="portfolio-meta"><span>Wedding</span><strong>The Vow</strong></div>
         </article>
         <article class="portfolio-item reveal" data-category="graduation" data-title="New Chapter" role="button" tabindex="0" aria-haspopup="dialog">
-          <img src="assets/gradu2.jpeg" alt="Graduation">
+          <img data-home-image="portfolio-graduation" src="assets/gradu2.jpeg" alt="Graduation">
           <div class="portfolio-meta"><span>Graduation</span><strong>New Chapter</strong></div>
         </article>
         <article class="portfolio-item wide reveal" data-category="event" data-title="The Gathering" role="button" tabindex="0" aria-haspopup="dialog">
-          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1600&q=85" alt="Event">
+          <img data-home-image="portfolio-event" src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1600&q=85" alt="Event">
           <div class="portfolio-meta"><span>Event</span><strong>The Gathering</strong></div>
         </article>
         <article class="portfolio-item reveal" data-category="concert" data-title="On Stage" role="button" tabindex="0" aria-haspopup="dialog">
-          <img src="assets/konser.jpeg" alt="Live performer">
+          <img data-home-image="portfolio-performer" src="assets/konser.jpeg" alt="Live performer">
           <div class="portfolio-meta"><span>Concert</span><strong>On Stage</strong></div>
         </article>
         <article class="portfolio-item tall reveal" data-category="wedding" data-title="Forever Frame" role="button" tabindex="0" aria-haspopup="dialog">
-          <img src="assets/weding.jpeg" alt="Wedding rings">
+          <img data-home-image="portfolio-rings" src="assets/weding.jpeg" alt="Wedding rings">
           <div class="portfolio-meta"><span>Wedding</span><strong>Forever Frame</strong></div>
         </article>
       </div>
@@ -216,15 +217,15 @@
       </div>
       <div class="team-grid">
         <div class="team-card reveal">
-          <div class="team-photo"><img src="assets/arizal.jpeg" alt="Team member"></div>
+          <div class="team-photo"><img data-home-image="team-arizal" src="assets/arizal.jpeg" alt="Team member"></div>
           <div><h3>Arizal Afsal</h3><p>Founder / Videographer</p></div>
         </div>
         <div class="team-card reveal">
-          <div class="team-photo"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85" alt="Team member"></div>
+          <div class="team-photo"><img data-home-image="team-daffa" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85" alt="Team member"></div>
           <div><h3>Daffa Putra Rustandi</h3><p>Photographer</p></div>
         </div>
         <div class="team-card reveal">
-          <div class="team-photo"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=85" alt="Team member"></div>
+          <div class="team-photo"><img data-home-image="team-diva" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=85" alt="Team member"></div>
           <div><h3>Diva Hasan Hariri</h3><p>Photographer / Editor</p></div>
         </div>
       </div>
@@ -251,6 +252,8 @@
     <p>© <span id="year"></span> Anumata Visual. All rights reserved.</p>
     <a href="#home">Back to top ↑</a>
   </footer>
+
+  <a class="floating-booking" href="https://wa.me/62895361528406">Book Us <span aria-hidden="true">&nearr;</span></a>
 
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau portofolio" aria-describedby="lightboxCaption" aria-hidden="true">
     <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Pengaturan profil{% endblock %}
+{% block content %}
+<section class="auth-layout" aria-labelledby="profile-title">
+  <div class="auth-intro">
+    <h1 id="profile-title">Pengaturan profil</h1>
+  </div>
+  <div class="auth-card">
+    {% for message in get_flashed_messages() %}
+    <p class="notice" role="status">{{ message }}</p>
+    {% endfor %}
+    {% if error %}<p class="notice notice-error" role="alert">{{ error }}</p>{% endif %}
+    <form class="auth-form" action="{{ url_for('profile') }}" method="post">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <label for="name">Nama lengkap</label>
+      <input id="name" name="name" value="{{ request.form.get('name', current_user.name) }}" autocomplete="name" required minlength="2" maxlength="80">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" value="{{ request.form.get('email', current_user.email) }}" autocomplete="username" required maxlength="254">
+      <label for="current_password">Kata sandi saat ini</label>
+      <input id="current_password" name="current_password" type="password" autocomplete="current-password" required maxlength="128">
+      <label for="new_password">Kata sandi baru (opsional)</label>
+      <input id="new_password" name="new_password" type="password" autocomplete="new-password" minlength="8" maxlength="128" aria-describedby="new-password-help">
+      <small id="new-password-help">Gunakan 8–128 karakter jika ingin mengganti kata sandi.</small>
+      <label for="confirm_password">Konfirmasi kata sandi baru</label>
+      <input id="confirm_password" name="confirm_password" type="password" autocomplete="new-password" minlength="8" maxlength="128">
+      <button class="btn btn-light" type="submit">Simpan perubahan</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

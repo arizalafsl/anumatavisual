@@ -1,200 +1,55 @@
-==================================================
-ANUMATA VISUAL — COMPANY PROFILE WEBSITE
-==================================================
+# Anumata Visual
 
-Website ini merupakan front-end company profile
-untuk Anumata Visual.
+Company profile photography/videography dengan login pengguna dan admin.
+Backend: Flask. Database: SQLite lokal. Frontend: HTML, CSS, JavaScript.
 
-Anumata Visual bergerak di bidang:
+## Menjalankan di VS Code (PowerShell)
 
-- Photography
-- Videography
-- Concert Documentation
-- Event Documentation
-- Wedding Documentation
-- Graduation Documentation
-- Video Production
+Buka terminal pada direktori proyek:
 
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe app.py
+```
 
-==================================================
-STRUKTUR FILE
-==================================================
+Buka http://127.0.0.1:5000. Gunakan server Flask untuk fitur akun; Live Server atau membuka index.html langsung hanya menampilkan profil statis.
+Jika belum ada .venv, buat dengan instalasi Python Anda: `python -m venv .venv`.
 
-anumata-visual/
-│
-├── index.html
-├── style.css
-├── script.js
-└── README.txt
+## Akun pengguna
 
+Klik **Masuk / Daftar**, daftar dengan nama, email, kata sandi 8?128 karakter dan konfirmasi. Semua pendaftaran publik berperan pengguna. Setelah login, pengguna masuk ke `/dashboard` dan bisa melihat profil serta menghubungi tim.
 
-==================================================
-CARA MENJALANKAN
-==================================================
+## Membuat admin
 
-1. Pastikan semua file berada dalam folder yang sama.
+Pada terminal kedua, jalankan:
 
-2. Buka:
+```powershell
+.\.venv\Scripts\python.exe -m flask --app app:create_app create-admin
+```
 
-   index.html
+Masukkan nama, email, dan kata sandi ketika diminta. Kata sandi disembunyikan. Tidak ada akun atau kata sandi admin bawaan. Admin login melalui formulir yang sama dan diarahkan ke `/admin`. Dashboard admin menampilkan jumlah dan daftar akun; menyediakan panel **Gambar beranda** untuk mengganti atau memulihkan foto utama, portofolio, dan tim. Gambar unggahan disimpan di database SQLite.
 
-   menggunakan browser seperti:
-   - Google Chrome
-   - Microsoft Edge
-   - Mozilla Firefox
+## Data dan sesi
 
+Database otomatis dibuat di `instance/anumata.sqlite3`. Kata sandi di-hash menggunakan Werkzeug; cookie tidak berisi kata sandi. Sesi memiliki batas 8 jam dan dihapus dari database saat logout. Form POST memakai token CSRF. Percobaan login gagal dibatasi selama 15 menit. Role selalu diperiksa backend. Database dan secret lokal dikecualikan dari Git. Jangan membagikan folder `instance`.
 
-Untuk development, disarankan menggunakan:
+Untuk hosting HTTPS, set `ANUMATA_HTTPS=1` dan gunakan `ANUMATA_SECRET_KEY` yang acak dan tetap. Server `python app.py` untuk pengembangan lokal; deployment memerlukan WSGI server dan konfigurasi HTTPS. Reset kata sandi dan verifikasi email belum tersedia.
 
-VS Code + Live Server
+## Pengujian
 
+```powershell
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
 
-==================================================
-FITUR
-==================================================
+Tes memakai database sementara, tanpa mengubah akun asli. Lihat `QA_REPORT.md` untuk hasil dan batas verifikasi.
 
-Website sudah memiliki:
+## Struktur
 
-- Responsive design
-- Desktop layout
-- Tablet layout
-- Mobile layout
-- Sticky navigation
-- Mobile hamburger menu
-- Smooth scrolling
-- Scroll reveal animation
-- Animated statistics counter
-- Portfolio filtering
-- Portfolio lightbox
-- Hover animation
-- Contact section
-- Team section
-- Services section
-- Achievement section
-- Testimonial section
+- `index.html`, `style.css`, `script.js`: company profile dan galeri.
+- `app.py`: route, autentikasi, otorisasi, database, CLI admin.
+- `templates/`: halaman login, daftar, akun, admin, dan error.
+- `assets/`: foto lokal; sebagian foto lain dan Google Fonts membutuhkan internet.
+- `tests/`: tes integrasi autentikasi dan aset.
+- `backup_sebelum_login/`: salinan empat file awal sebelum perubahan.
 
-
-==================================================
-BAGIAN YANG PERLU DIGANTI
-==================================================
-
-Beberapa data masih berupa data contoh.
-
-Silakan ganti:
-
-1. Nama anggota team
-
-2. Nomor WhatsApp
-
-3. Email
-
-4. Instagram
-
-5. Alamat
-
-6. Foto portfolio
-
-7. Foto anggota team
-
-8. Jumlah project
-
-9. Jumlah client
-
-10. Logo Anumata Visual
-
-
-==================================================
-FOTO
-==================================================
-
-Foto demo saat ini menggunakan URL dari Unsplash.
-
-Untuk website produksi, sebaiknya foto diganti
-dengan foto asli Anumata Visual.
-
-Contoh:
-
-assets/
-│
-├── logo.png
-├── hero.jpg
-├── portfolio/
-│   ├── concert-01.jpg
-│   ├── wedding-01.jpg
-│   └── graduation-01.jpg
-│
-└── team/
-    ├── person-01.jpg
-    └── person-02.jpg
-
-
-Kemudian ubah:
-
-<img src="URL_FOTO">
-
-menjadi:
-
-<img src="assets/portfolio/concert-01.jpg">
-
-
-==================================================
-FONT
-==================================================
-
-Website menggunakan:
-
-DM Sans
-Manrope
-
-Keduanya dimuat dari Google Fonts.
-
-
-==================================================
-WARNA
-==================================================
-
-Konsep utama:
-
-Hitam
-Putih
-Abu-abu
-
-Website menggunakan konsep:
-
-MONOCHROME
-+
-CINEMATIC
-+
-MINIMALIST
-+
-CREATIVE
-
-
-==================================================
-PENGEMBANGAN SELANJUTNYA
-==================================================
-
-Website ini masih berupa FRONT-END.
-
-Belum menggunakan:
-
-- Database
-- CMS
-- Admin dashboard
-- Backend
-- Authentication
-- Payment system
-
-Jika ingin dikembangkan, website dapat ditambahkan:
-
-- Booking system
-- Form pemesanan
-- WhatsApp integration
-- Admin dashboard
-- Portfolio CMS
-- Client management
-- Database
-- Pricing/package section
-- Google Maps
-- Instagram feed
-- Online quotation
+Informasi kontak, angka pencapaian, dan foto contoh perlu dikonfirmasi pemilik sebelum dipublikasikan.

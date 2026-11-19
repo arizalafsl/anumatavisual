@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Akun{% endblock %} ? Anumata Visual</title>
+  <link rel="stylesheet" href="{{ url_for('stylesheet') }}">
+</head>
+<body class="account-page">
+  <header class="account-header">
+    <a class="brand" href="{{ url_for('home') }}"><span class="brand-mark">A</span><span>ANUMATA<br><small>VISUAL</small></span></a>
+    <nav aria-label="Navigasi akun"><a href="{{ url_for('home') }}">Kembali ke website</a>
+    {% if current_user %}<a href="{{ url_for('dashboard') }}">Akun saya</a><a href="{{ url_for('profile') }}">Edit profil</a>
+    {% if current_user.role == 'admin' %}<a href="{{ url_for('admin') }}">Admin</a>{% endif %}
+    <form action="{{ url_for('logout') }}" method="post"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="account-link" type="submit">Keluar</button></form>{% endif %}</nav>
+  </header>
+  <main class="account-main" id="main-content">{% block content %}{% endblock %}</main>
+  <footer class="account-footer"><p>Anumata Visual ? Photography & Videography ? Sukabumi</p></footer>
+</body>
+</html>

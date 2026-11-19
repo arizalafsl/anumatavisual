@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}{{ 'Dashboard admin' if users is not none else 'Akun saya' }}{% endblock %}
+{% block content %}
+<section class="dashboard"><p class="eyebrow">{{ 'ADMIN / OVERVIEW' if users is not none else 'CLIENT / MY ACCOUNT' }}</p>
+<h1>Halo, {{ current_user.name }}.</h1><p class="account-muted">{{ 'Pantau akun yang terdaftar di Anumata Visual.' if users is not none else 'Selamat datang di halaman akun Anumata Visual.' }}</p>
+<div class="account-stats"><article class="account-panel"><h2>Profil akun</h2><dl><dt>Nama</dt><dd>{{ current_user.name }}</dd><dt>Email</dt><dd>{{ current_user.email }}</dd><dt>Peran</dt><dd>{{ 'Admin' if current_user.role == 'admin' else 'Pengguna' }}</dd></dl></article>
+{% if users is not none %}<article class="account-panel"><h2>Total akun</h2><p class="metric">{{ users|length }}</p><p class="account-muted">{{ users|selectattr('role', 'equalto', 'user')|list|length }} pengguna ? {{ users|selectattr('role', 'equalto', 'admin')|list|length }} admin</p></article>
+{% else %}<article class="account-panel"><h2>Mulai cerita Anda</h2><p class="account-muted">Jelajahi portofolio atau hubungi tim untuk membicarakan kebutuhan dokumentasi acara.</p><a class="btn btn-light" href="{{ url_for('home') }}#contact">Hubungi tim ?</a></article>{% endif %}</div>
+{% if users is not none %}<section class="account-panel"><h2>Daftar akun</h2><div class="table-scroll" role="region" aria-label="Daftar akun terdaftar" tabindex="0"><table><caption>Akun pengguna dan admin</caption><thead><tr><th scope="col">Nama</th><th scope="col">Email</th><th scope="col">Peran</th><th scope="col">Tanggal daftar (UTC)</th></tr></thead><tbody>{% for user in users %}<tr><td>{{ user.name }}</td><td>{{ user.email }}</td><td>{{ 'Admin' if user.role == 'admin' else 'Pengguna' }}</td><td>{{ user.created_at }}</td></tr>{% endfor %}</tbody></table></div></section>{% endif %}
+{% if images is defined %}{% include 'admin_images.html' %}{% endif %}
+</section>
+{% endblock %}

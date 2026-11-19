@@ -114,6 +114,9 @@ button {
 }
 
 .nav-cta {
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
   border: 1px solid #555;
   padding: 11px 17px;
   font-size: 11px;
@@ -898,7 +901,7 @@ footer > a {
     gap: 15px;
   }
 
-  .nav-cta {
+  .navbar > .nav-cta {
     display: none;
   }
 
@@ -1184,3 +1187,86 @@ th { color: #b5b5b5; }
 }
 
 .reveal.reveal-ready.visible { opacity: 1; transform: none; }
+
+.nav-login-mobile {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .nav-login-mobile {
+    display: inline-block;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+  }
+}
+
+.floating-booking {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  padding: 12px 18px;
+  border: 1px solid #aaa;
+  border-radius: 0;
+  background: #111;
+  color: #fff;
+  box-shadow: 0 8px 28px #0008;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: padding .25s ease, background-color .25s ease;
+}
+
+.floating-booking:hover,
+.floating-booking:focus-visible {
+  padding-inline-start: 30px;
+  background: #fff;
+  color: #111;
+}
+
+.auth-form button:disabled {
+  cursor: default;
+  opacity: .6;
+}
+
+.admin-images {
+  margin-top: 24px;
+}
+
+.admin-image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 20px;
+}
+
+.admin-image-card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+}
+
+.admin-image-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  margin-top: 12px;
+  object-fit: cover;
+  background: #222;
+}
+
+.admin-image-card .auth-form {
+  margin: 12px 0;
+}
+
+.admin-image-card .auth-form button {
+  margin-top: 0;
+}

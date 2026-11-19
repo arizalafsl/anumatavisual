@@ -76,7 +76,7 @@ const lightboxImage = document.getElementById("lightboxImage");
 const lightboxCaption = document.getElementById("lightboxCaption");
 const lightboxClose = document.getElementById("lightboxClose");
 let previousFocus = null;
-const backgroundElements = [...document.querySelectorAll("body > header, body > main, body > footer, body > .skip-link")];
+const backgroundElements = [...document.querySelectorAll("body > header, body > main, body > footer, body > .skip-link, body > .floating-booking")];
 function openLightbox(item) {
   previousFocus = item;
   const image = item.querySelector("img");

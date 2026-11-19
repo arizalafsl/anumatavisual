@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Anumata Visual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="account-page">
+  <header class="account-header">
+    <a class="brand" href="index.html" aria-label="Beranda Anumata Visual">
+      <span class="brand-mark">AV</span>
+      <span>ANUMATA<br><small>VISUAL</small></span>
+    </a>
+    <nav aria-label="Navigasi akun">
+      <a href="index.html">Kembali ke beranda</a>
+    </nav>
+  </header>
+  <main class="account-main">
+    <div class="auth-layout">
+      <div class="auth-intro">
+        <p class="eyebrow">Anumata Visual</p>
+        <h1>Masuk ke akun</h1>
+      </div>
+      <section class="auth-card" aria-label="Formulir Login">
+        <p class="notice">Layanan akun belum aktif. Formulir ini belum bisa dikirim.</p>
+        <form class="auth-form" method="post">
+
+          <label for="email">Email</label>
+          <input id="email" type="email" autocomplete="username">
+          <label for="password">Kata sandi</label>
+          <input id="password" type="password" autocomplete="current-password">
+
+          <button class="btn btn-light" type="submit" disabled>Masuk ke akun</button>
+        </form>
+        <p class="auth-switch">Belum punya akun? <a href="register.html">Daftar</a></p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

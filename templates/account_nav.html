@@ -1,0 +1,8 @@
+{% if current_user %}
+<a class="{{ account_class }}" href="{{ url_for('profile') }}">Akun saya</a>
+{% if current_user.role == 'admin' and account_class == 'nav-login-mobile' %}
+<a class="nav-login-mobile" href="{{ url_for('admin') }}">Dashboard admin</a>
+{% endif %}
+{% else %}
+<a class="{{ account_class }}" href="{{ url_for('login') }}">Login</a>
+{% endif %}
